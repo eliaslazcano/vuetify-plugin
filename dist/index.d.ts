@@ -107,4 +107,5 @@ declare module 'vue/types/vue' {
   }
 }
 
+// @ts-ignore
 export default { install };

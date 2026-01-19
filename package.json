@@ -5,10 +5,9 @@
   "author": "Elias Lazcano Castro Neto <elias304162@gmail.com>",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
-  "types": "index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "index.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "vite build",
