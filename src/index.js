@@ -1,7 +1,7 @@
-import { useComponentsStore } from './store/componentsStore'
+import { useVuetifyComponentsStore } from './store/vuetifyComponentsStore'
 import EGlobalUi from './components/EGlobalUI.vue'
-import LoaderOverlay from './components/LoaderOverlay.vue'
-import LoaderDialog from './components/LoaderDialog.vue'
+import EGlobalLoaderOverlay from './components/EGlobalLoaderOverlay.vue'
+import EGlobalLoaderDialog from './components/EGlobalLoaderDialog.vue'
 import VCardToolbar from './components/VCardToolbar.vue'
 
 export default {
@@ -14,12 +14,12 @@ export default {
     }
 
     // inicializa store do pacote e disponibiliza global via prototype (Vue 2 way)
-    Vue.prototype.$componentsStore = useComponentsStore(pinia)
+    Vue.prototype.$vuetifyComponentsStore = useVuetifyComponentsStore(pinia)
 
     // registra os componentes globais
     Vue.component('EGlobalUi', EGlobalUi)
-    Vue.component('LoaderOverlay', LoaderOverlay)
-    Vue.component('LoaderDialog', LoaderDialog)
+    Vue.component('EGlobalLoaderOverlay', EGlobalLoaderOverlay)
+    Vue.component('EGlobalLoaderDialog', EGlobalLoaderDialog)
     Vue.component('VCardToolbar', VCardToolbar)
   }
 }

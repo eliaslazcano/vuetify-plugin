@@ -1,6 +1,6 @@
 import {defineStore} from 'pinia'
 
-export const useComponentsStore = defineStore('componentsStore', {
+export const useVuetifyComponentsStore = defineStore('vuetifyComponentsStore', {
   state: () => ({
     loaderOverlayShow: false,
     loaderDialogShow: false,
@@ -63,38 +63,38 @@ export const useComponentsStore = defineStore('componentsStore', {
 })
 
 export const setLoaderOverlay = (bool, text = '') => {
-  const componentsStore = useComponentsStore()
-  componentsStore.loaderText = text
-  componentsStore.loaderOverlayShow = bool
+  const vuetifyComponentsStore = useVuetifyComponentsStore()
+  vuetifyComponentsStore.loaderText = text
+  vuetifyComponentsStore.loaderOverlayShow = bool
 }
 
 export const getLoaderOverlayStatus = () => {
-  const componentsStore = useComponentsStore()
-  return componentsStore.loaderOverlayShow
+  const vuetifyComponentsStore = useVuetifyComponentsStore()
+  return vuetifyComponentsStore.loaderOverlayShow
 }
 
 export const setLoaderDialog = (bool, text = '') => {
-  const componentsStore = useComponentsStore()
-  componentsStore.loaderText = text
-  componentsStore.loaderDialogShow = bool
+  const vuetifyComponentsStore = useVuetifyComponentsStore()
+  vuetifyComponentsStore.loaderText = text
+  vuetifyComponentsStore.loaderDialogShow = bool
 }
 
 export const emitirSnack = (ctx) => {
-  const componentsStore = useComponentsStore()
-  componentsStore.addSnack(ctx)
+  const vuetifyComponentsStore = useVuetifyComponentsStore()
+  vuetifyComponentsStore.addSnack(ctx)
 }
 
 export const emitirAlert = (ctx) => {
-  const componentsStore = useComponentsStore()
-  componentsStore.addAlert(ctx)
+  const vuetifyComponentsStore = useVuetifyComponentsStore()
+  vuetifyComponentsStore.addAlert(ctx)
 }
 
 export const emitirDialog = (text) => {
-  const componentsStore = useComponentsStore()
-  componentsStore.showDialog(text)
+  const vuetifyComponentsStore = useVuetifyComponentsStore()
+  vuetifyComponentsStore.showDialog(text)
 }
 
 export const emitirPrompt = (ctx) => {
-  const componentsStore = useComponentsStore()
-  componentsStore.adicionarPrompt(ctx)
+  const vuetifyComponentsStore = useVuetifyComponentsStore()
+  vuetifyComponentsStore.adicionarPrompt(ctx)
 }

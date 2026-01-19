@@ -1,11 +1,11 @@
 <script setup>
 import { watch, getCurrentInstance, onMounted } from 'vue'
-import { useComponentsStore } from '../store/componentsStore'
-import LoaderOverlay from './LoaderOverlay.vue'
-import LoaderDialog from './LoaderDialog.vue'
+import { useVuetifyComponentsStore } from '../store/vuetifyComponentsStore'
+import EGlobalLoaderOverlay from './EGlobalLoaderOverlay.vue'
+import EGlobalLoaderDialog from './EGlobalLoaderDialog.vue'
 import VCardToolbar from './VCardToolbar.vue'
 
-const componentsStore = useComponentsStore()
+const vuetifyComponentsStore = useVuetifyComponentsStore()
 
 // acesso ao vuetify (Vue 2 way)
 const { proxy } = getCurrentInstance()
@@ -17,7 +17,7 @@ onMounted(() => {
   if (route) {
     watch(
       () => proxy.$route.fullPath,
-      () => componentsStore.resetarPrompts()
+      () => vuetifyComponentsStore.resetarPrompts()
     )
   }
 })
@@ -26,7 +26,7 @@ onMounted(() => {
 const promptOnOk = (formComponent, promptId, onOk = () => {}, promptValue = '') => {
   if (!formComponent.validate()) return
   onOk(promptValue)
-  componentsStore.removerPrompt(promptId)
+  vuetifyComponentsStore.removerPrompt(promptId)
 }
 </script>
 
@@ -40,7 +40,7 @@ const promptOnOk = (formComponent, promptId, onOk = () => {}, promptValue = '') 
     >
       <transition-group name="slide-x-reverse-transition" appear>
         <v-alert
-          v-for="i in componentsStore.alerts"
+          v-for="i in vuetifyComponentsStore.alerts"
           :key="i.id"
           :type="i.type"
           :class="{'mr-3': !vuetify.breakpoint.smAndDown}"
@@ -53,7 +53,7 @@ const promptOnOk = (formComponent, promptId, onOk = () => {}, promptValue = '') 
     </div>
 
     <!-- Dialog -->
-    <v-dialog app persistent width="32rem" :value="componentsStore.dialogShow">
+    <v-dialog app persistent width="32rem" :value="vuetifyComponentsStore.dialogShow">
       <v-card>
         <v-alert type="warning" border="top" class="mb-0 text-justify" text :icon="false">
           <div class="d-flex align-center flex-column">
@@ -61,31 +61,31 @@ const promptOnOk = (formComponent, promptId, onOk = () => {}, promptValue = '') 
             <p
               class="body-1 flex-grow-1 mb-0"
               style="white-space: pre-wrap; text-align: justify"
-              v-html="componentsStore.dialogContent"
+              v-html="vuetifyComponentsStore.dialogContent"
             ></p>
           </div>
         </v-alert>
         <v-divider></v-divider>
         <v-card-actions class="justify-center">
-          <v-btn small depressed color="warning" @click="componentsStore.dialogShow = false">OK</v-btn>
+          <v-btn small depressed color="warning" @click="vuetifyComponentsStore.dialogShow = false">OK</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
 
     <!-- Loader Overlay -->
-    <LoaderOverlay :value="componentsStore.loaderOverlayShow" :texto="componentsStore.loaderText"/>
+    <EGlobalLoaderOverlay :value="vuetifyComponentsStore.loaderOverlayShow" :texto="vuetifyComponentsStore.loaderText"/>
 
     <!-- Loader Dialog -->
-    <LoaderDialog :value="componentsStore.loaderDialogShow" :texto="componentsStore.loaderText"/>
+    <EGlobalLoaderDialog :value="vuetifyComponentsStore.loaderDialogShow" :texto="vuetifyComponentsStore.loaderText"/>
 
     <!-- Snackbar -->
     <v-snackbar
-      v-for="i in componentsStore.snacks"
+      v-for="i in vuetifyComponentsStore.snacks"
       :key="i.id"
       :color="i.color"
       :timeout="i.timeout"
       :value="true"
-      @input="componentsStore.removeSnack(i.id)"
+      @input="vuetifyComponentsStore.removeSnack(i.id)"
       min-width="8rem"
       max-width="100%"
       app
@@ -97,13 +97,13 @@ const promptOnOk = (formComponent, promptId, onOk = () => {}, promptValue = '') 
 
     <!-- Prompt -->
     <v-dialog
-      v-for="(i, index) in componentsStore.prompts"
+      v-for="(i, index) in vuetifyComponentsStore.prompts"
       v-model="i.show"
       :key="i.id"
       :width="i.options.width || '24em'"
       :persistent="i.options.persistent"
       :hide-overlay="i.options.hideOverlay"
-      @click:outside="i.options.persistent ? null : componentsStore.removerPrompt(i.id, false, true)"
+      @click:outside="i.options.persistent ? null : vuetifyComponentsStore.removerPrompt(i.id, false, true)"
     >
       <v-card>
         <v-form @submit.prevent="promptOnOk($refs.prompters[index], i.id, i.options.onOk, i.promptValue)" ref="prompters">
@@ -153,7 +153,7 @@ const promptOnOk = (formComponent, promptId, onOk = () => {}, promptValue = '') 
               :color="i.options.cancelColor || 'primary'"
               :class="i.options.cancelClass"
               :small="i.options.smallButtons"
-              @click="componentsStore.removerPrompt(i.id, true, true)"
+              @click="vuetifyComponentsStore.removerPrompt(i.id, true, true)"
               :depressed="i.options.cancelDepressed"
               :outlined="i.options.cancelOutlined ?? true"
             >{{ i.options.cancelText || 'CANCELAR' }}</v-btn>
