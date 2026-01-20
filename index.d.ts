@@ -3,7 +3,7 @@ declare module '@eliaslazcano/vuetify-plugin' {
   import { Store, StateTree } from 'pinia';
 
   // Components
-  export const FabToTop: VueConstructor;
+  export const VFabToTop: VueConstructor;
   export const VBtnTooltip: VueConstructor;
   export const VCardToolbar: VueConstructor;
   export const VContainerAsync: VueConstructor;
