@@ -17,6 +17,7 @@
   "peerDependencies": {
     "pinia": "^2",
     "vue": "^2.7",
+    "vue-frag": "^1.4",
     "vuetify": "^2.6"
   },
   "devDependencies": {
