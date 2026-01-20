@@ -1,5 +1,6 @@
 <script setup>
-  import { getCurrentInstance } from 'vue'
+import { getCurrentInstance } from 'vue'
+
 const { proxy } = getCurrentInstance()
 const vuetify = proxy.$vuetify
 
@@ -19,7 +20,7 @@ defineEmits(['close'])
   <v-toolbar
     v-bind="$attrs"
     class="flex-grow-0"
-    :color="vuetify.framework.theme.dark && color === 'primary' ? undefined : color"
+    :color="vuetify.theme.dark && color === 'primary' ? undefined : color"
     dark flat dense
   >
     <v-icon class="mr-2" v-if="icon" :size="iconSize">{{icon}}</v-icon>
