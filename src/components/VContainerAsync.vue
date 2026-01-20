@@ -1,3 +1,15 @@
+<script setup>
+defineProps({
+  loading: {type: Boolean, default: false},
+  color: {type: String, default: 'blue'},
+  transition: {type: String, default: 'fade-transition'},
+  spinnerTransition: {type: String, default: 'fade-transition'},
+  fluid: {type: Boolean, default: false},
+  appear: {type: Boolean, default: true},
+  texto: {type: String, default: ''}
+})
+</script>
+
 <template>
   <transition
     mode="out-in"
@@ -21,23 +33,8 @@
       <v-progress-circular indeterminate :color="color"/>
       <div class="mt-2 grey--text text--darken-1" v-if="texto">{{ texto }}</div>
     </div>
-    <v-container v-else :key="2" :fluid="fluid" v-bind="$attrs">
+    <v-container v-else :key="2" :fluid="fluid" v-bind="$attrs" v-on="$listeners">
       <slot/>
     </v-container>
   </transition>
 </template>
-
-<script>
-export default {
-  name: 'VContainerAsync',
-  props: {
-    loading: {type: Boolean, default: false},
-    color: {type: String, default: 'blue'},
-    transition: {type: String, default: 'fade-transition'},
-    spinnerTransition: {type: String, default: 'fade-transition'},
-    fluid: {type: Boolean, default: false},
-    appear: {type: Boolean, default: true},
-    texto: {type: String, default: ''},
-  }
-}
-</script>

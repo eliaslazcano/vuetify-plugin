@@ -61,11 +61,12 @@ watch(() => props.value, v => {
   <v-text-field
     v-maska="'##/##/####'"
     v-model="iptModel"
+    v-bind="$attrs"
+    v-on="$listeners"
     type="tel"
     :rules="iptRules"
     :placeholder="placeholder"
     persistent-placeholder
-    v-bind="$attrs"
   >
     <template #append>
       <v-btn icon small @click="iptModel = ''" v-if="btnLimpar && props.value">
@@ -82,8 +83,7 @@ watch(() => props.value, v => {
           :locale="locale"
           :value="props.value"
           @input="pickerOnSelect"
-          scrollable
-          no-title
+          scrollable no-title
         />
       </v-menu>
     </template>

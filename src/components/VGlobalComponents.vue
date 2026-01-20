@@ -1,6 +1,7 @@
 <script setup>
 import { watch, getCurrentInstance, onMounted } from 'vue'
 import { useVuetifyComponentsStore } from '../store/vuetifyComponentsStore'
+import { vMaska } from 'maska/vue'
 import VLoaderOverlay from './VLoaderOverlay.vue'
 import VLoaderDialog from './VLoaderDialog.vue'
 import VCardToolbar from './VCardToolbar.vue'
