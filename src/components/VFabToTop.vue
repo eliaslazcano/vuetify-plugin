@@ -1,5 +1,5 @@
 <script setup>
-import { getCurrentInstance, ref } from 'vue'
+import { getCurrentInstance, ref, onMounted } from 'vue'
 
 const props = defineProps({
   scrollOffset: {type: Number, default: 300},
@@ -11,7 +11,15 @@ const vuetify = proxy.$vuetify
 const exibirBotao = ref(false)
 const onScroll = () => exibirBotao.value = (window.pageYOffset || document.documentElement.offsetTop || 0) > props.scrollOffset
 
-console.log('snackbar: ', vuetify?.application?.snackbar)
+console.log('vuetify: ', vuetify)
+console.log('vuetify?.application: ', vuetify?.application)
+console.log('vuetify?.application?.snackbar: ', vuetify?.application?.snackbar)
+
+onMounted(() => {
+  console.log('2vuetify: ', vuetify)
+  console.log('2vuetify?.application: ', vuetify?.application)
+  console.log('2vuetify?.application?.snackbar: ', vuetify?.application?.snackbar)
+})
 </script>
 
 <template>
