@@ -1,8 +1,8 @@
 <script setup>
 import { watch, getCurrentInstance, onMounted } from 'vue'
 import { useVuetifyComponentsStore } from '../store/vuetifyComponentsStore'
-import EGlobalLoaderOverlay from './EGlobalLoaderOverlay.vue'
-import EGlobalLoaderDialog from './EGlobalLoaderDialog.vue'
+import VLoaderOverlay from './VLoaderOverlay.vue'
+import VLoaderDialog from './VLoaderDialog.vue'
 import VCardToolbar from './VCardToolbar.vue'
 
 const vuetifyComponentsStore = useVuetifyComponentsStore()
@@ -73,10 +73,10 @@ const promptOnOk = (formComponent, promptId, onOk = () => {}, promptValue = '') 
     </v-dialog>
 
     <!-- Loader Overlay -->
-    <EGlobalLoaderOverlay :value="vuetifyComponentsStore.loaderOverlayShow" :texto="vuetifyComponentsStore.loaderText"/>
+    <VLoaderOverlay :value="vuetifyComponentsStore.loaderOverlayShow" :texto="vuetifyComponentsStore.loaderText"/>
 
     <!-- Loader Dialog -->
-    <EGlobalLoaderDialog :value="vuetifyComponentsStore.loaderDialogShow" :texto="vuetifyComponentsStore.loaderText"/>
+    <VLoaderDialog :value="vuetifyComponentsStore.loaderDialogShow" :texto="vuetifyComponentsStore.loaderText"/>
 
     <!-- Snackbar -->
     <v-snackbar

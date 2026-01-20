@@ -1,7 +1,7 @@
 import { useVuetifyComponentsStore, emitirAlert, emitirDialog, emitirPrompt, emitirSnack, setLoaderOverlay, setLoaderDialog, getLoaderOverlayStatus } from './store/vuetifyComponentsStore'
-import EGlobalUi from './components/EGlobalUI.vue'
-import EGlobalLoaderOverlay from './components/EGlobalLoaderOverlay.vue'
-import EGlobalLoaderDialog from './components/EGlobalLoaderDialog.vue'
+import VGlobalComponents from './components/VGlobalComponents.vue'
+import VLoaderOverlay from './components/VLoaderOverlay.vue'
+import VLoaderDialog from './components/VLoaderDialog.vue'
 import VBtnTooltip from './components/VBtnTooltip.vue'
 import VCardToolbar from './components/VCardToolbar.vue'
 import VDateField from './components/VDateField.vue'
@@ -17,9 +17,9 @@ const install = (Vue, options = {}) => {
   Vue.prototype.$vuetifyComponentsStore = useVuetifyComponentsStore(pinia)
 
   // registra os componentes globais (opcional, mantido para compatibilidade se o usuário usar Vue.use())
-  Vue.component('EGlobalUi', EGlobalUi)
-  Vue.component('EGlobalLoaderOverlay', EGlobalLoaderOverlay)
-  Vue.component('EGlobalLoaderDialog', EGlobalLoaderDialog)
+  Vue.component('VGlobalComponents', VGlobalComponents)
+  Vue.component('VLoaderOverlay', VLoaderOverlay)
+  Vue.component('VLoaderDialog', VLoaderDialog)
   Vue.component('VBtnTooltip', VBtnTooltip)
   Vue.component('VCardToolbar', VCardToolbar)
   Vue.component('VDateField', VDateField)
@@ -28,9 +28,9 @@ const install = (Vue, options = {}) => {
 export {
   install,
   useVuetifyComponentsStore,
-  EGlobalUi,
-  EGlobalLoaderOverlay,
-  EGlobalLoaderDialog,
+  VGlobalComponents,
+  VLoaderOverlay,
+  VLoaderDialog,
   VBtnTooltip,
   VCardToolbar,
   VDateField,
