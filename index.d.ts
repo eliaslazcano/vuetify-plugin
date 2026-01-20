@@ -3,12 +3,13 @@ declare module '@eliaslazcano/vuetify-plugin' {
   import { Store, StateTree } from 'pinia';
 
   // Components
-  export const VGlobalComponents: VueConstructor;
-  export const VLoaderOverlay: VueConstructor;
-  export const VLoaderDialog: VueConstructor;
   export const VBtnTooltip: VueConstructor;
   export const VCardToolbar: VueConstructor;
+  export const VContainerAsync: VueConstructor;
   export const VDateField: VueConstructor;
+  export const VGlobalComponents: VueConstructor;
+  export const VLoaderDialog: VueConstructor;
+  export const VLoaderOverlay: VueConstructor;
 
   // Store
   export interface VuetifyComponentsState extends StateTree {
