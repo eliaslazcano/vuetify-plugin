@@ -10,10 +10,7 @@ import VLoaderOverlay from './components/VLoaderOverlay.vue'
 
 const install = (Vue, options = {}) => {
   const pinia = options.pinia || (Vue.prototype.$pinia) // Tenta pegar do Vue se não for passado
-  if (!pinia) {
-    console.error('[@eliaslazcano/vuetify] Pinia é necessário para esta biblioteca.')
-    return
-  }
+  if (!pinia) return console.error('[@eliaslazcano/vuetify-plugin] Pinia é necessário para esta biblioteca.')
 
   // inicializa store do pacote e disponibiliza global via prototype (Vue 2 way)
   Vue.prototype.$vuetifyComponentsStore = useVuetifyComponentsStore(pinia)
