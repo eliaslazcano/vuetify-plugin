@@ -26,7 +26,7 @@ defineEmits(['close'])
     <v-icon class="mr-2" v-if="icon" :size="iconSize">{{icon}}</v-icon>
     <v-toolbar-title :style="{fontSize: titleSize}" style="line-height: 1.1">{{ title }}</v-toolbar-title>
     <v-spacer></v-spacer>
-    <slot></slot>
+    <slot/>
     <v-btn icon @click="$emit('close')" v-if="btnClose">
       <v-icon>mdi-close</v-icon>
     </v-btn>

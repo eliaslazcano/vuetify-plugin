@@ -6,7 +6,9 @@ declare module '@eliaslazcano/vuetify-plugin' {
   export const EGlobalUi: VueConstructor;
   export const EGlobalLoaderOverlay: VueConstructor;
   export const EGlobalLoaderDialog: VueConstructor;
+  export const VBtnTooltip: VueConstructor;
   export const VCardToolbar: VueConstructor;
+  export const VDateField: VueConstructor;
 
   // Store
   export interface VuetifyComponentsState extends StateTree {

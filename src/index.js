@@ -2,7 +2,9 @@ import { useVuetifyComponentsStore, emitirAlert, emitirDialog, emitirPrompt, emi
 import EGlobalUi from './components/EGlobalUI.vue'
 import EGlobalLoaderOverlay from './components/EGlobalLoaderOverlay.vue'
 import EGlobalLoaderDialog from './components/EGlobalLoaderDialog.vue'
+import VBtnTooltip from './components/VBtnTooltip.vue'
 import VCardToolbar from './components/VCardToolbar.vue'
+import VDateField from './components/VDateField.vue'
 
 const install = (Vue, options = {}) => {
   const pinia = options.pinia || (Vue.prototype.$pinia) // Tenta pegar do Vue se não for passado
@@ -18,7 +20,9 @@ const install = (Vue, options = {}) => {
   Vue.component('EGlobalUi', EGlobalUi)
   Vue.component('EGlobalLoaderOverlay', EGlobalLoaderOverlay)
   Vue.component('EGlobalLoaderDialog', EGlobalLoaderDialog)
+  Vue.component('VBtnTooltip', VBtnTooltip)
   Vue.component('VCardToolbar', VCardToolbar)
+  Vue.component('VDateField', VDateField)
 }
 
 export {
@@ -27,7 +31,9 @@ export {
   EGlobalUi,
   EGlobalLoaderOverlay,
   EGlobalLoaderDialog,
+  VBtnTooltip,
   VCardToolbar,
+  VDateField,
   emitirAlert,
   emitirDialog,
   emitirPrompt,
