@@ -20,16 +20,17 @@ const props = defineProps({
 
 const emit = defineEmits(['input'])
 
-const dataAtualMoment = moment()
-const dataAtualFormatada = dataAtualMoment.format('YYYY-MM-DD')
+const dataHojeMoment = moment()
+const dataHojeIso = dataHojeMoment.format('YYYY-MM-DD')
 
 const iptModel = ref('')
 const iptRules = computed(() => [
   v => !props.required || !!v || 'Insira a data',
   v => !v || v.length === 10 || 'Complete a data',
   v => !v || moment(v, 'DD/MM/YYYY', true).isValid() || 'Insira uma data válida',
-  v => !v || !props.impedirFuturo || moment(v, 'DD/MM/YYYY', true).isSameOrBefore(dataAtualMoment, 'day') || 'Não utilize datas futuras'
+  v => !v || !props.impedirFuturo || moment(v, 'DD/MM/YYYY', true).isSameOrBefore(dataHojeMoment, 'day') || 'Não utilize datas futuras'
 ])
+
 watch(iptModel, v => {
   if (v.length === 10) {
     const date = moment(v, 'DD/MM/YYYY', true)
@@ -44,11 +45,13 @@ if (props.value) {
   iptModel.value = inicialMoment.isValid() ? inicialMoment.format('DD/MM/YYYY') : ''
 }
 
+const pickerValorInicial = computed(() => moment(props.value, 'YYYY-MM-DD', true).isValid() ? props.value : dataHojeIso)
 const pickerShow = ref(false)
 const pickerOnSelect = v => {
   iptModel.value = moment(v, 'YYYY-MM-DD', true).format('DD/MM/YYYY')
   pickerShow.value = false
 }
+
 watch(() => props.value, v => {
   if (v) {
     const date = moment(v, 'YYYY-MM-DD', true)
@@ -79,9 +82,9 @@ watch(() => props.value, v => {
           </v-btn>
         </template>
         <v-date-picker
-          :max="impedirFuturo ? dataAtualFormatada : max"
+          :max="impedirFuturo ? dataHojeIso : max"
           :locale="locale"
-          :value="props.value"
+          :value="pickerValorInicial"
           @input="pickerOnSelect"
           scrollable no-title
         />
