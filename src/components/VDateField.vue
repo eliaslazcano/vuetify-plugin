@@ -65,7 +65,6 @@ watch(() => props.value, v => {
     v-maska="'##/##/####'"
     v-model="iptModel"
     v-bind="$attrs"
-    v-on="$listeners"
     type="tel"
     :rules="iptRules"
     :placeholder="placeholder"
