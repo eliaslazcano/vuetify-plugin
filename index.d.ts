@@ -1,13 +1,12 @@
 declare module '@eliaslazcano/vuetify-plugin' {
-  import Vue, { VueConstructor, PluginFunction } from 'vue';
-  import { Store, StateTree } from 'pinia';
+  import Vue, { PluginFunction } from 'vue';
+  import {Store, StateTree, Pinia} from 'pinia';
 
-  // Component Props Interfaces
-  export interface VFabToTopProps {
+  export class VFabToTop extends Vue {
     scrollOffset?: number;
   }
 
-  export interface VBtnTooltipProps {
+  export class VBtnTooltip extends Vue {
     text?: string;
     tooltipColor?: string;
     color?: string;
@@ -27,7 +26,7 @@ declare module '@eliaslazcano/vuetify-plugin' {
     disabled?: boolean;
   }
 
-  export interface VCardToolbarProps {
+  export class VCardToolbar extends Vue {
     color?: string;
     title?: string;
     titleSize?: string;
@@ -36,18 +35,19 @@ declare module '@eliaslazcano/vuetify-plugin' {
     btnClose?: boolean;
   }
 
-  export interface VContainerAsyncProps {
+  export class VContainerAsync extends Vue {
     loading?: boolean;
     color?: string;
-    transition?: string;
+    containerTransition?: string;
     spinnerTransition?: string;
     texto?: string;
     fluid?: boolean;
     appear?: boolean;
     fixed?: boolean;
+    zIndex?: string | number;
   }
 
-  export interface VDateFieldProps {
+  export class VDateField extends Vue {
     value?: string;
     required?: boolean;
     placeholder?: string;
@@ -59,9 +59,9 @@ declare module '@eliaslazcano/vuetify-plugin' {
     btnLimpar?: boolean;
   }
 
-  export interface VGlobalComponentsProps {}
+  export class VGlobalComponents extends Vue {}
 
-  export interface VLoaderDialogProps {
+  export class VLoaderDialog extends Vue {
     value?: boolean;
     hideOverlay?: boolean;
     persistent?: boolean;
@@ -71,22 +71,12 @@ declare module '@eliaslazcano/vuetify-plugin' {
     progressColor?: string;
   }
 
-  export interface VLoaderOverlayProps {
+  export class VLoaderOverlay extends Vue {
     value?: boolean;
     zIndex?: number | string;
     opacity?: number;
     texto?: string;
   }
-
-  // Components
-  export const VFabToTop: VueConstructor<Vue & { $props: VFabToTopProps }>;
-  export const VBtnTooltip: VueConstructor<Vue & { $props: VBtnTooltipProps }>;
-  export const VCardToolbar: VueConstructor<Vue & { $props: VCardToolbarProps }>;
-  export const VContainerAsync: VueConstructor<Vue & { $props: VContainerAsyncProps }>;
-  export const VDateField: VueConstructor<Vue & { $props: VDateFieldProps }>;
-  export const VGlobalComponents: VueConstructor<Vue & { $props: VGlobalComponentsProps }>;
-  export const VLoaderDialog: VueConstructor<Vue & { $props: VLoaderDialogProps }>;
-  export const VLoaderOverlay: VueConstructor<Vue & { $props: VLoaderOverlayProps }>;
 
   // Store
   export interface VuetifyComponentsState extends StateTree {
@@ -133,7 +123,7 @@ declare module '@eliaslazcano/vuetify-plugin' {
     confirmOutlined?: boolean;
     confirmDepressed?: boolean;
     smallButtons?: boolean;
-    onOk?: (value: any) => void;
+    onOk?: (value: string) => void;
     onCancel?: () => void;
     onDismiss?: () => void;
     onFinally?: () => void;
@@ -161,10 +151,10 @@ declare module '@eliaslazcano/vuetify-plugin' {
   export function setLoaderDialog(bool: boolean, text?: string): void;
   export function getLoaderOverlayStatus(): boolean;
 
-  // Plugin
   export interface VuetifyComponentsPluginOptions {
-    pinia?: any;
+    pinia?: Pinia;
   }
+
   const plugin: {
     install: PluginFunction<VuetifyComponentsPluginOptions>
   };
