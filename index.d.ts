@@ -2,7 +2,7 @@ declare module '@eliaslazcano/vuetify-plugin' {
   import Vue, { PluginFunction } from 'vue';
   import {Store, StateTree, Pinia} from 'pinia';
 
-  export class DialogQRCode extends Vue {
+  export class VDialogQRCode extends Vue {
     titulo?: string;
     btnCopiar?: boolean;
     btnCopiarLabel?: string;
