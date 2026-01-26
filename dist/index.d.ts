@@ -2,6 +2,16 @@ declare module '@eliaslazcano/vuetify-plugin' {
   import Vue, { PluginFunction } from 'vue';
   import {Store, StateTree, Pinia} from 'pinia';
 
+  export class DialogQRCode extends Vue {
+    titulo?: string;
+    btnCopiar?: boolean;
+    btnCopiarLabel?: string;
+    btnAbrir?: boolean;
+    btnAbrirLabel?: string;
+    width?: string;
+    exibir(textoQr: string): void;
+  }
+
   export class VFabToTop extends Vue {
     scrollOffset?: number;
   }

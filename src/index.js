@@ -1,4 +1,5 @@
 import { useVuetifyComponentsStore, emitirAlert, emitirDialog, emitirPrompt, emitirSnack, setLoaderOverlay, setLoaderDialog, getLoaderOverlayStatus } from './store/vuetifyComponentsStore'
+import DialogQRCode from './components/DialogQRCode.vue'
 import VBtnTooltip from './components/VBtnTooltip.vue'
 import VCardToolbar from './components/VCardToolbar.vue'
 import VContainerAsync from './components/VContainerAsync.vue'
@@ -16,6 +17,7 @@ const install = (Vue, options = {}) => {
   Vue.prototype.$vuetifyComponentsStore = useVuetifyComponentsStore(pinia)
 
   // registra os componentes globais (opcional, mantido para compatibilidade se o usuário usar Vue.use())
+  Vue.component('DialogQRCode', DialogQRCode)
   Vue.component('VBtnTooltip', VBtnTooltip)
   Vue.component('VCardToolbar', VCardToolbar)
   Vue.component('VContainerAsync', VContainerAsync)
@@ -29,11 +31,12 @@ const install = (Vue, options = {}) => {
 export {
   install,
   useVuetifyComponentsStore,
-  VFabToTop,
+  DialogQRCode,
   VBtnTooltip,
   VCardToolbar,
   VContainerAsync,
   VDateField,
+  VFabToTop,
   VGlobalComponents,
   VLoaderDialog,
   VLoaderOverlay,
