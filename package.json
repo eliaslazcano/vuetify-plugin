@@ -1,6 +1,6 @@
 {
   "name": "@eliaslazcano/vuetify-plugin",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "description": "Componentes extras para Vuetify 2",
   "author": "Elias Lazcano Castro Neto <elias304162@gmail.com>",
   "main": "dist/index.umd.js",
