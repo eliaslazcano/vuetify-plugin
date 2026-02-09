@@ -14,6 +14,7 @@ defineProps({
   href: {type: String},
   small: {type: Boolean},
   xSmall: {type: Boolean},
+  depressed: {type: Boolean},
   fab: {type: Boolean},
   large: {type: Boolean},
   dark: {type: Boolean},
@@ -44,6 +45,7 @@ const emit = defineEmits(['click'])
         :href="href"
         :small="small"
         :x-small="xSmall"
+        :depressed="depressed"
         :disabled="disabled"
         :fab="fab"
         :large="large"
