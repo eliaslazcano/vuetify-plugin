@@ -86,6 +86,7 @@ const Ps = {
     href: { type: String },
     small: { type: Boolean },
     xSmall: { type: Boolean },
+    depressed: { type: Boolean },
     fab: { type: Boolean },
     large: { type: Boolean },
     dark: { type: Boolean },
@@ -104,7 +105,7 @@ const Ps = {
 var Ns = function() {
   var t = this, r = t._self._c, n = t._self._setupProxy;
   return r("v-tooltip", t._b({ attrs: { disabled: n.vuetify.breakpoint.xs, color: t.tooltipColor }, scopedSlots: t._u([{ key: "activator", fn: function({ on: s, attrs: a }) {
-    return [r("v-btn", t._g(t._b({ class: t.btnClasses, attrs: { color: t.color, icon: t.icon, to: t.to, target: t.target, href: t.href, small: t.small, "x-small": t.xSmall, disabled: t.disabled, fab: t.fab, large: t.large, dark: t.dark, fixed: t.fixed, bottom: t.btnBottom, right: t.btnRight }, on: { click: function(i) {
+    return [r("v-btn", t._g(t._b({ class: t.btnClasses, attrs: { color: t.color, icon: t.icon, to: t.to, target: t.target, href: t.href, small: t.small, "x-small": t.xSmall, depressed: t.depressed, disabled: t.disabled, fab: t.fab, large: t.large, dark: t.dark, fixed: t.fixed, bottom: t.btnBottom, right: t.btnRight }, on: { click: function(i) {
       return n.emit("click");
     } } }, "v-btn", a, !1), s), [t._t("default")], 2)];
   } }], null, !0) }, "v-tooltip", t.$attrs, !1), [t.$slots.tooltip ? t._t("default") : r("span", [t._v(t._s(t.text))])], 2);
