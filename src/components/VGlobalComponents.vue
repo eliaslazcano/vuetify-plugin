@@ -77,7 +77,7 @@ const promptOnOk = (formComponent, promptId, onOk = () => {}, promptValue = '') 
     <VLoaderOverlay :value="vuetifyComponentsStore.loaderOverlayShow" :texto="vuetifyComponentsStore.loaderText"/>
 
     <!-- Loader Dialog -->
-    <VLoaderDialog :value="vuetifyComponentsStore.loaderDialogShow" :texto="vuetifyComponentsStore.loaderText"/>
+    <VLoaderDialog :value="vuetifyComponentsStore.loaderDialogShow" :text="vuetifyComponentsStore.loaderText"/>
 
     <!-- Snackbar -->
     <v-snackbar
