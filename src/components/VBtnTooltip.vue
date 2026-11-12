@@ -16,6 +16,7 @@ defineProps({
   xSmall: {type: Boolean},
   depressed: {type: Boolean},
   outlined: {type: Boolean},
+  rounded: {type: Boolean},
   fab: {type: Boolean},
   large: {type: Boolean},
   dark: {type: Boolean},
@@ -48,6 +49,7 @@ const emit = defineEmits(['click'])
         :x-small="xSmall"
         :depressed="depressed"
         :outlined="outlined"
+        :rounded="rounded"
         :disabled="disabled"
         :fab="fab"
         :large="large"
