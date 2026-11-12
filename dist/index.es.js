@@ -87,6 +87,7 @@ const Ps = {
     small: { type: Boolean },
     xSmall: { type: Boolean },
     depressed: { type: Boolean },
+    outlined: { type: Boolean },
     fab: { type: Boolean },
     large: { type: Boolean },
     dark: { type: Boolean },
@@ -105,7 +106,7 @@ const Ps = {
 var Ns = function() {
   var t = this, r = t._self._c, n = t._self._setupProxy;
   return r("v-tooltip", t._b({ attrs: { disabled: n.vuetify.breakpoint.xs, color: t.tooltipColor }, scopedSlots: t._u([{ key: "activator", fn: function({ on: s, attrs: a }) {
-    return [r("v-btn", t._g(t._b({ class: t.btnClasses, attrs: { color: t.color, icon: t.icon, to: t.to, target: t.target, href: t.href, small: t.small, "x-small": t.xSmall, depressed: t.depressed, disabled: t.disabled, fab: t.fab, large: t.large, dark: t.dark, fixed: t.fixed, bottom: t.btnBottom, right: t.btnRight }, on: { click: function(i) {
+    return [r("v-btn", t._g(t._b({ class: t.btnClasses, attrs: { color: t.color, icon: t.icon, to: t.to, target: t.target, href: t.href, small: t.small, "x-small": t.xSmall, depressed: t.depressed, outlined: t.outlined, disabled: t.disabled, fab: t.fab, large: t.large, dark: t.dark, fixed: t.fixed, bottom: t.btnBottom, right: t.btnRight }, on: { click: function(i) {
       return n.emit("click");
     } } }, "v-btn", a, !1), s), [t._t("default")], 2)];
   } }], null, !0) }, "v-tooltip", t.$attrs, !1), [t.$slots.tooltip ? t._t("default") : r("span", [t._v(t._s(t.text))])], 2);
@@ -4724,7 +4725,7 @@ var Ju = function() {
     return r("v-alert", { key: s.id, staticClass: "mt-2 mb-0 alert", class: { "mr-3": !n.vuetify.breakpoint.smAndDown }, attrs: { type: s.type, elevation: "2", width: "20rem", "max-width": "100%" } }, [t._v(t._s(s.text))]);
   }), 1)], 1), r("v-dialog", { attrs: { app: "", persistent: "", width: "32rem", value: n.vuetifyComponentsStore.dialogShow } }, [r("v-card", [r("v-alert", { staticClass: "mb-0 text-justify", attrs: { type: "warning", border: "top", text: "", icon: !1 } }, [r("div", { staticClass: "d-flex align-center flex-column" }, [r("v-icon", { staticClass: "warning lighten-1 rounded-circle pa-2 mb-2", attrs: { size: "30", color: "white" } }, [t._v("mdi-alert")]), r("p", { staticClass: "body-1 flex-grow-1 mb-0", staticStyle: { "white-space": "pre-wrap", "text-align": "justify" }, domProps: { innerHTML: t._s(n.vuetifyComponentsStore.dialogContent) } })], 1)]), r("v-divider"), r("v-card-actions", { staticClass: "justify-center" }, [r("v-btn", { attrs: { small: "", depressed: "", color: "warning" }, on: { click: function(s) {
     n.vuetifyComponentsStore.dialogShow = !1;
-  } } }, [t._v("OK")])], 1)], 1)], 1), r(n.VLoaderOverlay, { attrs: { value: n.vuetifyComponentsStore.loaderOverlayShow, texto: n.vuetifyComponentsStore.loaderText } }), r(n.VLoaderDialog, { attrs: { value: n.vuetifyComponentsStore.loaderDialogShow, texto: n.vuetifyComponentsStore.loaderText } }), t._l(n.vuetifyComponentsStore.snacks, function(s) {
+  } } }, [t._v("OK")])], 1)], 1)], 1), r(n.VLoaderOverlay, { attrs: { value: n.vuetifyComponentsStore.loaderOverlayShow, texto: n.vuetifyComponentsStore.loaderText } }), r(n.VLoaderDialog, { attrs: { value: n.vuetifyComponentsStore.loaderDialogShow, text: n.vuetifyComponentsStore.loaderText } }), t._l(n.vuetifyComponentsStore.snacks, function(s) {
     return r("v-snackbar", { key: s.id, attrs: { color: s.color, timeout: s.timeout, value: !0, "min-width": "8rem", "max-width": "100%", app: "" }, on: { input: function(a) {
       return n.vuetifyComponentsStore.removeSnack(s.id);
     } } }, [s.icon ? r("v-icon", { staticClass: "mr-1", attrs: { dense: "", color: "white" } }, [t._v(t._s(s.icon))]) : s.color === "success" ? r("v-icon", { staticClass: "mr-1", attrs: { dense: "", color: "white" } }, [t._v("mdi-check-circle")]) : t._e(), t._v(" " + t._s(s.text) + " ")], 1);
